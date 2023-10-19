@@ -8,4 +8,8 @@ class Student {
   constructor(public name: string, public age: number, public grade: string) {}
 }
 
+const student = new Student('Max', 12, 'KS');
+console.log(student);
+
+
 export {};
