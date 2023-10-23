@@ -1,4 +1,19 @@
-// const key = new Key();
+class Key {
+  private signature: number;
+
+  constructor() {
+    this.signature = Math.random();
+  }
+
+  getSignature(): number {
+    return this.signature;
+  }
+}
+
+const key = new Key();
+
+console.log(key);
+
 
 // const house = new MyHouse(key);
 // const person = new Person(key);
@@ -8,4 +23,4 @@
 // house.comeIn(person);
 
 
-// export {};
+export {};

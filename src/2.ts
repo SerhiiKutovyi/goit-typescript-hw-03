@@ -14,36 +14,36 @@
 
 */
 
-// class Employee {
-//   // Заповніть модифікатори доступу
-//   public name: string;
-//   private department: string;
-//   protected salary: number;
+class Employee {
+  // Заповніть модифікатори доступу
+  public name: string;
+  private department: string;
+  protected salary: number;
 
-//   constructor(name: string, department: string, salary: number) {
-//     this.name = name;
-//     this.department = department;
-//     this.salary = salary;
-//   }
+  constructor(name: string, department: string, salary: number) {
+    this.name = name;
+    this.department = department;
+    this.salary = salary;
+  }
 
-//   getEmployeeDetails() {
-//     console.log(`Name: ${this.name}, Department: ${this.department}, Salary: ${this.salary}`);
+  getEmployeeDetails() {
+    console.log(`Name: ${this.name}, Department: ${this.department}, Salary: ${this.salary}`);
      
-//   }
-// }
+  }
+}
 
-// class Manager extends Employee {
-//   // Реалізуйте конструктор та збільшіть salary на 10000
-//   constructor(name: string, department: string, salary: number) {
-//     super(name, department, salary + 10000);
-//   }
-// }
-
-
-// const manager = new Manager('John Doe', 'Management', 50000);
-// manager.getEmployeeDetails();
+class Manager extends Employee {
+  // Реалізуйте конструктор та збільшіть salary на 10000
+  constructor(name: string, department: string, salary: number) {
+    super(name, department, salary + 10000);
+  }
+}
 
 
-// export { };
+const manager = new Manager('John Doe', 'Management', 50000);
+manager.getEmployeeDetails();
 
-console.log('dfgdfgd');
+
+export { };
+
+
