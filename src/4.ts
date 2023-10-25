@@ -19,33 +19,35 @@ class Person {
 }
 
 abstract class House {
-  private tenants: Person[] = [];
-  constructor(public door: boolean, public key: Key) {}
+  protected door: boolean;
+  protected key: Key;
+  protected tenants: Person[] = [];
 
-  comeIn(): any {
+  constructor(key: Key) {
+    this.door = false;
+    this.key = key;
+  }
+
+  abstract openDoor(key: Key): void;
+
+  comeIn(person: Person): void {
     if (this.door) {
       this.tenants.push(person);
-      console.log(`entered the house.`);
+
+      console.log(`Двері відкриті`);
     } else {
-      console.log('The door is closed. Cannot enter.');
+      console.log('Двері зачинені');
     }
   }
-  abstract openDoor(key: Key): void;
 }
 
 class MyHouse extends House {
-  private isOpen: boolean = false;
-
-  constructor(door: boolean, key: Key){
-   super(door, key);
-  }
-
-  openDoor(key: Key) {
-    if (!this.isOpen && key.getSignature() === this.key.getSignature()) {
-      this.isOpen = true;
-      console.log('Door is opened.');
+  openDoor(key: Key): void {
+    if (key.getSignature() === this.key.getSignature()) {
+      this.door = true;
+      console.log('Двері відкриті');
     } else {
-      console.log('Invalid key or the door is already open.');
+      console.log('Двері зачинені');
     }
   }
 }
@@ -54,12 +56,8 @@ const key = new Key();
 
 const house = new MyHouse(key);
 const person = new Person(key);
-console.log(person);
-
-
-house.openDoor(person.getKey());
-
 house.comeIn(person);
 
+house.openDoor(person.getKey());
 
 export {};
