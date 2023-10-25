@@ -19,16 +19,9 @@ class Person {
 }
 
 abstract class House {
-  protected door: boolean;
-  protected key: Key;
   protected tenants: Person[] = [];
 
-  constructor(key: Key) {
-    this.door = false;
-    this.key = key;
-  }
-
-  abstract openDoor(key: Key): void;
+  constructor(protected key: Key, protected door: boolean = false) {}
 
   comeIn(person: Person): void {
     if (this.door) {
@@ -39,6 +32,7 @@ abstract class House {
       console.log('Двері зачинені');
     }
   }
+  abstract openDoor(key: Key): void;
 }
 
 class MyHouse extends House {
